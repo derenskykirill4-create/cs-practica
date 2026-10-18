@@ -24,4 +24,17 @@ def parse_record(line: str) -> dict:
         "date": date.strip()
     }
 
-
+def read_valid(lines: list[str]) -> list[dict]:
+    """
+    Разбирает строки журнала, молча пропуская пустые и негодные строки.
+    """
+    valid_records = []
+    for line in lines:
+        if not line.strip():  # Пропускаем пустые строки молча
+            continue
+        try:
+            record = parse_record(line)
+            valid_records.append(record)
+        except ValueError:
+            pass  # Негодные строки просто пропускаем
+    return valid_records

@@ -38,3 +38,4 @@ def read_valid(lines: list[str]) -> list[dict]:
         except ValueError:
             pass  # Негодные строки просто пропускаем
     return valid_records
+

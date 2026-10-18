@@ -20,7 +20,7 @@ def parse_record(line: str) -> dict:
 
     return {
         "city": city.strip(),
-        "temp": temp,
+        "temperature": temp,
         "date": date.strip()
     }
 
@@ -49,7 +49,7 @@ def average_by_city(records: list[dict]) -> dict:
     counts = {}
     for rec in records:
         city = rec["city"]
-        totals[city] = totals.get(city, 0.0) + rec["temp"]
+        totals[city] = totals.get(city, 0.0) + rec["temperature"]
         counts[city] = counts.get(city, 0) + 1
 
     averages = {}
